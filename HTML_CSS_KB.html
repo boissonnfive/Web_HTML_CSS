@@ -1,0 +1,267 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Base de connaissances HTML/CSS</title>
+  <meta name="description" content="Test de satisfaction client">
+  <meta name="author" content="B Info Service">
+
+  <!-- CSS -->
+  <!-- code déporté dans un fichier -->
+  <!-- Ici pour HiglightJS -->
+  <link rel="stylesheet" href="highlight/styles/vs.css">
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <!-- JAVASCRIPT -->
+  <!-- code déporté dans un fichier -->
+  <!-- Ici pour HiglightJS -->
+  <script src="highlight/highlight.pack.js"></script>
+
+  <!-- ou code inclus dans le fichier HTML -->
+  <!-- Ici pour HiglightJS -->
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link rel="stylesheet" href="css/style_KB.css">
+    
+  <style type="text/css"> /*Des exemples*/
+
+    .bouton {
+      cursor: pointer;
+      width: 120px;
+      text-decoration: none;
+      background-color: #000;
+      border: none;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+    }
+
+    .img_pleine_largeur {
+      background: url(css/Bonobo.jpg) no-repeat center center scroll;
+      width: 100%;
+      height: 150px;
+	  }
+
+    .img_dans_cercle {
+      border-radius: 50%;
+      width: 100px;
+    }
+  
+    .Formulaire {
+      margin: 25px;
+      padding : 15px;
+      width: 50%;
+      background-color: #eee;
+      position: relative;
+    }
+    .Question {
+      font-weight: bold;
+    }
+    form {
+      padding: 15px;
+    }
+  
+    .Cadre_ombre {
+      -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;
+      box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;      
+      width: 255px;
+      padding: 25px;
+    }
+  
+    
+  </style>
+
+</head>
+
+<body>
+
+  <div id="Contenu">
+
+  <h1>Base de connaissances HTML/CSS</h1>
+
+
+  <h2>Créer un bouton</h2>
+
+  <h3>Démo</h3>
+
+  <button class="bouton" type="button">SUIVANT</button>
+
+  <h3>Code CSS</h3>
+
+  <pre><code>
+.bouton {
+    cursor: pointer;
+    width: 120px;
+    text-decoration: none;
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+  </code></pre>
+
+  <h3>Code HTML</h3>
+
+  <pre><code>
+&lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
+  </code></pre>
+
+  
+
+  <!-- ----------------------------------------------------------------------------- -->
+
+  <h2>Image qui prend toute la largeur de la page</h2>
+
+  <h3>Démo</h3>
+
+  <div class="img_pleine_largeur">
+    <p>Maintenance informatique</p>
+  </div>
+
+
+  <h3>Code CSS</h3>
+
+  <pre><code>
+.img_pleine_largeur {
+  background: url(images/Bonobo.jpg) no-repeat center center scroll;
+  width: 100%;
+  height: 150px;
+}
+  </code></pre>
+
+  <h3>Code HTML</h3>
+
+  <pre><code>
+&lt;div class="img_pleine_largeur"&gt;
+  &lt;p&gt;Maintenance informatique&lt;/p&gt;
+&lt;/div&gt;
+  </code></pre>
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <h2>Image dans un cercle</h2>
+
+  <h3>Démo</h3>
+
+  <img src="images/Bonobo_carre.png" class="img_dans_cercle">
+
+  <p class="note">NOTE: Il faut que l'image soit carrée pour obtenir un cercle (sinon on obtiendra un oval).</p>
+
+  <img src="images/Bonobo.jpg" class="img_dans_cercle">
+
+  <h3>Code CSS</h3>
+
+  <pre><code>
+.img_dans_cercle {
+  border-radius: 50%;
+  width: 100px;
+}
+  </code></pre>
+
+  <h3>Code HTML</h3>
+
+  <pre><code>
+&lt;img src="images/Bonobo.jpg" class="img_dans_cercle"&gt;
+  </code></pre>
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <h2>Questionnaire bouton radio</h2>
+
+  <h3>Démo</h3>
+
+  <div class="Formulaire">
+    <div class="Question">
+      <p>Nous avez-vous trouvés facilement ?</p>
+    </div>
+    <form action="">
+      <input type="radio" name="gender" value="oui"> OUI<br>
+      <input type="radio" name="gender" value="non"> NON<br>
+      <input type="radio" name="gender" value="nsp"> NSP
+      <br>
+      <br>
+     <!--  <button class="flottant-droit bouton" type="button">PRÉCÉDENT</button> -->
+      <button class="bouton" type="button">SUIVANT</button>
+      <br>
+    </form>
+  </div>
+
+
+  <h3>Code CSS</h3>
+
+  <pre><code>
+.Formulaire {
+  margin: 25px;
+  padding : 15px;
+  width: 25%;
+  background-color: #eee;
+  position: relative;
+}
+  </code></pre>
+
+  <h3>Code HTML</h3>
+
+  <pre><code>
+&lt;div class="Formulaire"&gt;
+  &lt;div class="Question"&gt;
+    &lt;p&gt;Nous avez-vous trouvés facilement ?&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;form action=""&gt;
+    &lt;input type="radio" name="gender" value="oui"&gt; OUI&lt;br&gt;
+    &lt;input type="radio" name="gender" value="non"&gt; NON&lt;br&gt;
+    &lt;input type="radio" name="gender" value="nsp"&gt; NSP
+    &lt;br&gt;
+    &lt;br&gt;
+   &lt;!--  &lt;button class="flottant-droit bouton" type="button"&gt;PRÉCÉDENT&lt;/button&gt; --&gt;
+    &lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
+    &lt;br&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+  </code></pre>
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <h2>Cadre avec ombre portée</h2>
+
+  <h3>Démo</h3>
+
+  <div class="Cadre_ombre">
+    <img src="images/croix.png" style="width:50px; float:right; margin-right: -15px; margin-top:-15px">
+    <img src="images/Bonobo_carre.png" class="img_dans_cercle">
+    <p>Bonjour et merci de bien vouloir répondre à ce questionnaire. Il ne dure qu'une minute !</p>
+    <p>Encore merci.</p>
+  </div>
+
+  <h3>Code CSS</h3>
+
+  <pre><code>
+.Cadre_ombre {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;
+  box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;      
+  width: 255px;
+  padding: 25px;
+}
+  </code></pre>
+
+  <h3>Code HTML</h3>
+
+  <pre><code>
+&lt;div class="Cadre_ombre"&gt;
+  &lt;img src="images/croix.png" style="width:50px; float:right; margin-right: -15px; margin-top:-15px"&gt;
+  &lt;img src="images/Bonobo_carre.png" class="img_dans_cercle"&gt;
+  &lt;p&gt;Bonjour et merci de bien vouloir répondre à ce questionnaire. Il ne dure qu'une minute !&lt;/p&gt;
+  &lt;p&gt;Encore merci.&lt;/p&gt;
+&lt;/div&gt;
+  </code></pre>
+
+
+</div>  <!-- id="content" -->
+
+</body>
+</html>
