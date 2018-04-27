@@ -1,0 +1,38 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-family : "Helvetica Neu", "Segoe UI", SegoeUI, Helvetica, Arial, sans-serif;
+}
+
+body {background-color: #ccc;}
+
+h1 {
+  text-align: center;
+  /*background-color: #ddd;
+  padding: 5px;*/
+  margin-bottom: 55px;
+  font-weight: lighter;
+}
+
+h2 {
+  border-bottom: 1px solid #333;
+  padding: 3px;
+  font-weight: lighter;
+}
+
+#Contenu {
+  padding : 50px;
+  width: 650px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+}
+
+.note {
+  /*background-color: #FDF5A3;*/
+  background: #FDF5A3 url(loupe.png) no-repeat left center scroll;
+  padding: 10px;
+  border-radius: 10px;
+  padding-left : 40px;
+  font-size: small;
+}
