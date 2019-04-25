@@ -36,3 +36,15 @@ h2 {
   padding-left : 40px;
   font-size: small;
 }
+
+.tdm {
+  list-style: none;
+  margin: 45px 0;
+}
+
+.lien_tdm {
+  color: inherit;
+  /*text-decoration: none;*/
+  font-size: 16px;
+  line-height: 29px;
+}

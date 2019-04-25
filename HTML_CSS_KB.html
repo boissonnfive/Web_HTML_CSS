@@ -24,7 +24,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
 
   <link rel="stylesheet" href="css/style_KB.css">
-    
+
   <style type="text/css"> /*Des exemples*/
 
     .bouton {
@@ -40,18 +40,18 @@
       font-size: 16px;
       margin: 4px 2px;
     }
-
+  
     .img_pleine_largeur {
       background: url(css/Bonobo.jpg) no-repeat center center scroll;
       width: 100%;
       height: 150px;
-	  }
-
+    }
+  
     .img_dans_cercle {
       border-radius: 50%;
       width: 100px;
     }
-  
+    
     .Formulaire {
       margin: 25px;
       padding : 15px;
@@ -65,61 +65,255 @@
     form {
       padding: 15px;
     }
-  
+    
     .Cadre_ombre {
       -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;
       box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;      
       width: 255px;
       padding: 25px;
     }
-  
     
+  
+    .titre {
+      margin: 35px 0;
+      text-align: center;
+      font-weight: 100;
+    }
+  
+    /*nav { margin: 25px 0; }*/
+  
+    .menu_button {margin : 20px 20px; cursor: pointer;}
+  
+    .bar1, .bar2, .bar3 {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin : 3px 0;
+      transition: 0.4s;
+    }
+  
+    .change .bar1 {
+      transform: rotate(45deg) translate(0,8px);
+    }
+  
+    .change .bar2 {
+      opacity: 0;
+    }
+  
+    .change .bar3 {
+      transform: rotate(-45deg) translate(0,-8px);
+    }
+  
+  
+    #menu {
+      list-style: none;
+      margin: 0;
+      background-color: #9dcbc6;
+      /*display: none;*/
+      /*width: 0px;*/
+      position: absolute;
+      top: 50px;    
+      bottom: 0;
+      left: -500px;
+      width: 100%;
+      /*height: 0px;*/
+      /*transform: scale(0);*/
+      transition: /*width 0.7s,*/ left 0.7s;
+    }
+  
+    #menu.change {/*display: block;*/ /*width: 100%;*/left: 0;}
+  
+    #menu > li {
+    /*display: inline-block;*/ /*non utilisable car ajoute un espace blanc entre les éléments dû au   saut de ligne/espace/tabulation dans le HTML*/
+      /*float: left;*/ /*ATTENTION ! Il faut faire un clear du float*/
+      padding: 20px 25px;
+      border-right: 1px solid #b0ded9;
+      position: relative;
+      /*background-color: #9dcbc6;*/
+      margin: 0;
+      border-bottom: 1px solid #b0ded9;
+    }
+  
+    #menu > li > a {
+      text-decoration: none;
+      color: #efefef;
+      width: 0px;
+    }
+  
+    #menu > li:hover {
+      background-color: #b0ded9;
+    }
+  
+    #menu > li:hover a {
+      color: #799f9b;
+    }
+  
+    #menu > li:hover ul {
+      display: block;
+    }
+  
+    #sous-menu {display: none;}
+  
+    #sous-menu {
+      list-style: none;
+      position: absolute;
+      top: 57px;
+      left: 0;
+      display: none;
+      background-color: #9dcbc6;
+      width: 100%;
+      z-index: 3;
+    }
+  
+  
+    #sous-menu > li {
+      padding: 20px 25px;
+      border-top: 1px solid #b0ded9;
+      ba
+    }
+  
+    #sous-menu > li > a {
+      text-decoration: none;
+      color: #efefef;
+    }
+  
+    #sous-menu > li:hover {
+      background-color: #9dcbc6; /*#b0ded9;*/
+    }
+  
+    #sous-menu > li:hover a {
+      color: #efefef; /*#799f9b;*/
+    }
+  
+  
+    @media screen and (min-width: 800px) {
+  
+      .menu_button {display: none;}
+  
+      #menu {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        background-color: #9dcbc6;
+        display: block;
+        position: inherit;
+      }
+  
+      #menu > li {
+      /*display: inline-block;*/ /*non utilisable car ajoute un espace blanc entre les éléments dû au   saut de ligne/espace/tabulation dans le HTML*/
+        float: left; /*ATTENTION ! Il faut faire un clear du float*/
+        padding: 20px 25px;
+        border-right: 1px solid #b0ded9;
+        position: relative;
+        /*background-color: #9dcbc6;*/
+        margin: 0;
+      }
+      #sous-menu {
+        padding-left: 0;
+        list-style: none;
+        position: absolute;
+        top: 57px;
+        left: 0;
+        display: none;
+        background-color: #9dcbc6;
+        width: 113px;
+      }
+  
+      #sous-menu > li {
+        padding: 20px 25px;
+        border-top: 1px solid #b0ded9;
+        ba
+      }
+  
+      #sous-menu > li > a {
+        text-decoration: none;
+        color: #efefef;
+      }
+  
+      #sous-menu > li:hover {
+        background-color: #9dcbc6; /*#b0ded9;*/
+      }
+  
+      #sous-menu > li:hover a {
+        color: #efefef; /*#799f9b;*/
+      }
+    }
+  
+  
+  
+    .clearfix::after {
+      content: '.';
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  
+    .clearfix { display: inline-block; }
+  
+    /* Hides from IE-mac */
+    * html .clearfix {height: 1%;}
+    .clearfix {display: block;}
+    /* End hides from IE-mac */
   </style>
-
 </head>
 
 <body>
 
   <div id="Contenu">
 
-  <h1>Base de connaissances HTML/CSS</h1>
+    <h1>Base de connaissances HTML/CSS</h1>
 
+    <ul class="tdm">
+      <li><a href="#titre1" class="lien_tdm">Créer un bouton</a></li>
+      <li><a href="#titre2" class="lien_tdm">Image qui prend toute la largeur de la page</a></li>
+      <li><a href="#titre3" class="lien_tdm">Image dans un cercle</a></li>
+      <li><a href="#titre4" class="lien_tdm">Questionnaire bouton radio</a></li>
+      <li><a href="#titre5" class="lien_tdm">Cadre avec ombre portée</a></li>
+      <li><a href="#titre6" class="lien_tdm">Menus et sous-menus</a></li>
+    </ul>
+    <!-- <h2><a href="#titre1" class="lien_tdm">Créer un bouton</a></h2>
+    <h2><a href="#titre2" class="lien_tdm">Image qui prend toute la largeur de la page</a></h2>
+    <h2><a href="#titre3" class="lien_tdm">Image dans un cercle</a></h2>
+    <h2><a href="#titre4" class="lien_tdm">Questionnaire bouton radio</a></h2>
+    <h2><a href="#titre5" class="lien_tdm">Cadre avec ombre portée</a></h2>
+    <h2><a href="#titre5" class="lien_tdm">Menus et sous-menus</a></h2> -->
 
-  <h2>Créer un bouton</h2>
+    <h2 id="titre1">Créer un bouton</h2>
 
-  <h3>Démo</h3>
+    <h3>Démo</h3>
 
-  <button class="bouton" type="button">SUIVANT</button>
+    <button class="bouton" type="button">SUIVANT</button>
 
-  <h3>Code CSS</h3>
+    <h3>Code CSS</h3>
 
-  <pre><code>
-.bouton {
-    cursor: pointer;
-    width: 120px;
-    text-decoration: none;
-    background-color: #000;
-    border: none;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-}
+    <pre><code>
+      .bouton {
+      cursor: pointer;
+      width: 120px;
+      text-decoration: none;
+      background-color: #000;
+      border: none;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+    }
   </code></pre>
 
   <h3>Code HTML</h3>
 
   <pre><code>
-&lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
+    &lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
   </code></pre>
 
   
 
   <!-- ----------------------------------------------------------------------------- -->
 
-  <h2>Image qui prend toute la largeur de la page</h2>
+  <h2 id="titre2">Image qui prend toute la largeur de la page</h2>
 
   <h3>Démo</h3>
 
@@ -131,134 +325,380 @@
   <h3>Code CSS</h3>
 
   <pre><code>
-.img_pleine_largeur {
-  background: url(images/Bonobo.jpg) no-repeat center center scroll;
-  width: 100%;
-  height: 150px;
-}
-  </code></pre>
+    .img_pleine_largeur {
+    background: url(images/Bonobo.jpg) no-repeat center center scroll;
+    width: 100%;
+    height: 150px;
+  }
+</code></pre>
 
-  <h3>Code HTML</h3>
+<h3>Code HTML</h3>
 
-  <pre><code>
-&lt;div class="img_pleine_largeur"&gt;
+<pre><code>
+  &lt;div class="img_pleine_largeur"&gt;
   &lt;p&gt;Maintenance informatique&lt;/p&gt;
-&lt;/div&gt;
-  </code></pre>
+  &lt;/div&gt;
+</code></pre>
 
-  <!-- ----------------------------------------------------------------------------- -->
-  <h2>Image dans un cercle</h2>
+<!-- ----------------------------------------------------------------------------- -->
+<h2 id="titre3">Image dans un cercle</h2>
 
-  <h3>Démo</h3>
+<h3>Démo</h3>
 
-  <img src="images/Bonobo_carre.png" class="img_dans_cercle">
+<img src="images/Bonobo_carre.png" class="img_dans_cercle">
 
-  <p class="note">NOTE: Il faut que l'image soit carrée pour obtenir un cercle (sinon on obtiendra un oval).</p>
+<p class="note">NOTE: Il faut que l'image soit carrée pour obtenir un cercle (sinon on obtiendra un oval).</p>
 
-  <img src="images/Bonobo.jpg" class="img_dans_cercle">
+<img src="images/Bonobo.jpg" class="img_dans_cercle">
 
-  <h3>Code CSS</h3>
+<h3>Code CSS</h3>
 
-  <pre><code>
-.img_dans_cercle {
+<pre><code>
+  .img_dans_cercle {
   border-radius: 50%;
   width: 100px;
 }
-  </code></pre>
+</code></pre>
 
-  <h3>Code HTML</h3>
+<h3>Code HTML</h3>
 
-  <pre><code>
-&lt;img src="images/Bonobo.jpg" class="img_dans_cercle"&gt;
-  </code></pre>
+<pre><code>
+  &lt;img src="images/Bonobo.jpg" class="img_dans_cercle"&gt;
+</code></pre>
 
-  <!-- ----------------------------------------------------------------------------- -->
-  <h2>Questionnaire bouton radio</h2>
+<!-- ----------------------------------------------------------------------------- -->
+<h2 id="titre4">Questionnaire bouton radio</h2>
 
-  <h3>Démo</h3>
+<h3>Démo</h3>
 
-  <div class="Formulaire">
-    <div class="Question">
-      <p>Nous avez-vous trouvés facilement ?</p>
-    </div>
-    <form action="">
-      <input type="radio" name="gender" value="oui"> OUI<br>
-      <input type="radio" name="gender" value="non"> NON<br>
-      <input type="radio" name="gender" value="nsp"> NSP
-      <br>
-      <br>
-     <!--  <button class="flottant-droit bouton" type="button">PRÉCÉDENT</button> -->
-      <button class="bouton" type="button">SUIVANT</button>
-      <br>
-    </form>
+<div class="Formulaire">
+  <div class="Question">
+    <p>Nous avez-vous trouvés facilement ?</p>
   </div>
+  <form action="">
+    <input type="radio" name="gender" value="oui"> OUI<br>
+    <input type="radio" name="gender" value="non"> NON<br>
+    <input type="radio" name="gender" value="nsp"> NSP
+    <br>
+    <br>
+    <!--  <button class="flottant-droit bouton" type="button">PRÉCÉDENT</button> -->
+    <button class="bouton" type="button">SUIVANT</button>
+    <br>
+  </form>
+</div>
 
 
-  <h3>Code CSS</h3>
+<h3>Code CSS</h3>
 
-  <pre><code>
-.Formulaire {
+<pre><code>
+  .Formulaire {
   margin: 25px;
   padding : 15px;
   width: 25%;
   background-color: #eee;
   position: relative;
 }
-  </code></pre>
+</code></pre>
 
-  <h3>Code HTML</h3>
+<h3>Code HTML</h3>
 
-  <pre><code>
-&lt;div class="Formulaire"&gt;
+<pre><code>
+  &lt;div class="Formulaire"&gt;
   &lt;div class="Question"&gt;
-    &lt;p&gt;Nous avez-vous trouvés facilement ?&lt;/p&gt;
+  &lt;p&gt;Nous avez-vous trouvés facilement ?&lt;/p&gt;
   &lt;/div&gt;
   &lt;form action=""&gt;
-    &lt;input type="radio" name="gender" value="oui"&gt; OUI&lt;br&gt;
-    &lt;input type="radio" name="gender" value="non"&gt; NON&lt;br&gt;
-    &lt;input type="radio" name="gender" value="nsp"&gt; NSP
-    &lt;br&gt;
-    &lt;br&gt;
-   &lt;!--  &lt;button class="flottant-droit bouton" type="button"&gt;PRÉCÉDENT&lt;/button&gt; --&gt;
-    &lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
-    &lt;br&gt;
+  &lt;input type="radio" name="gender" value="oui"&gt; OUI&lt;br&gt;
+  &lt;input type="radio" name="gender" value="non"&gt; NON&lt;br&gt;
+  &lt;input type="radio" name="gender" value="nsp"&gt; NSP
+  &lt;br&gt;
+  &lt;br&gt;
+  &lt;!--  &lt;button class="flottant-droit bouton" type="button"&gt;PRÉCÉDENT&lt;/button&gt; --&gt;
+  &lt;button class="bouton" type="button"&gt;SUIVANT&lt;/button&gt;
+  &lt;br&gt;
   &lt;/form&gt;
-&lt;/div&gt;
-  </code></pre>
+  &lt;/div&gt;
+</code></pre>
 
-  <!-- ----------------------------------------------------------------------------- -->
-  <h2>Cadre avec ombre portée</h2>
+<!-- ----------------------------------------------------------------------------- -->
+<h2 id="titre5">Cadre avec ombre portée</h2>
 
-  <h3>Démo</h3>
+<h3>Démo</h3>
 
-  <div class="Cadre_ombre">
-    <img src="images/croix.png" style="width:50px; float:right; margin-right: -15px; margin-top:-15px">
-    <img src="images/Bonobo_carre.png" class="img_dans_cercle">
-    <p>Bonjour et merci de bien vouloir répondre à ce questionnaire. Il ne dure qu'une minute !</p>
-    <p>Encore merci.</p>
-  </div>
+<div class="Cadre_ombre">
+  <img src="images/croix.png" style="width:50px; float:right; margin-right: -15px; margin-top:-15px">
+  <img src="images/Bonobo_carre.png" class="img_dans_cercle">
+  <p>Bonjour et merci de bien vouloir répondre à ce questionnaire. Il ne dure qu'une minute !</p>
+  <p>Encore merci.</p>
+</div>
 
-  <h3>Code CSS</h3>
+<h3>Code CSS</h3>
 
-  <pre><code>
-.Cadre_ombre {
+<pre><code>
+  .Cadre_ombre {
   -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;
   box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 40px 0px;      
   width: 255px;
   padding: 25px;
 }
-  </code></pre>
+</code></pre>
 
-  <h3>Code HTML</h3>
+<h3>Code HTML</h3>
 
-  <pre><code>
-&lt;div class="Cadre_ombre"&gt;
+<pre><code>
+  &lt;div class="Cadre_ombre"&gt;
   &lt;img src="images/croix.png" style="width:50px; float:right; margin-right: -15px; margin-top:-15px"&gt;
   &lt;img src="images/Bonobo_carre.png" class="img_dans_cercle"&gt;
   &lt;p&gt;Bonjour et merci de bien vouloir répondre à ce questionnaire. Il ne dure qu'une minute !&lt;/p&gt;
   &lt;p&gt;Encore merci.&lt;/p&gt;
-&lt;/div&gt;
-  </code></pre>
+  &lt;/div&gt;
+</code></pre>
+
+
+<!-- ----------------------------------------------------------------------------- -->
+<h2 id="titre6">Menus et sous-menus</h2>
+
+<h3>Démo</h3>
+
+<nav>
+  <div class="menu_button" onclick="menu(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div> 
+  <ul id="menu" class="clearfix">
+    <li><a href="#selecteurs">Sélecteurs</a></li>
+    <li><a href="#cascade">Cascade</a>
+      <ul id="sous-menu">
+        <li><a href="#">lien 1</a></li>
+        <li><a href="#">lien 2</a></li>
+        <li><a href="#">lien 3</a></li>
+        <li><a href="#">lien 4</a></li>
+      </ul>
+    </li>
+    <li><a href="#heritage">Héritage</a></li>
+    <li><a href="#biblio">Bibliographie</a></li>
+  </ul>
+</nav>
+
+<script>
+  function menu(x) {
+    x.classList.toggle("change");
+    document.getElementById("menu").classList.toggle("change");
+    document.getElementById("menu").getElementsByTagName("li").classList.toggle("change");
+  }
+</script>
+
+<h3>Code CSS</h3>
+
+<pre><code>
+  .menu_button {margin : 20px 20px; cursor: pointer;}
+
+  .bar1, .bar2, .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin : 3px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+transform: rotate(45deg) translate(0,8px);
+}
+
+.change .bar2 {
+opacity: 0;
+}
+
+.change .bar3 {
+transform: rotate(-45deg) translate(0,-8px);
+}
+
+
+#menu {
+list-style: none;
+margin: 0;
+background-color: #9dcbc6;
+/*display: none;*/
+/*width: 0px;*/
+position: absolute;
+top: 50px;    
+bottom: 0;
+left: -500px;
+width: 100%;
+/*height: 0px;*/
+/*transform: scale(0);*/
+transition: /*width 0.7s,*/ left 0.7s;
+}
+
+#menu.change {/*display: block;*/ /*width: 100%;*/left: 0;}
+
+#menu > li {
+/*display: inline-block;*/ /*non utilisable car ajoute un espace blanc entre les éléments dû au saut de ligne/espace/tabulation dans le HTML*/
+/*float: left;*/ /*ATTENTION ! Il faut faire un clear du float*/
+padding: 20px 25px;
+border-right: 1px solid #b0ded9;
+position: relative;
+/*background-color: #9dcbc6;*/
+margin: 0;
+border-bottom: 1px solid #b0ded9;
+}
+
+#menu > li > a {
+text-decoration: none;
+color: #efefef;
+width: 0px;
+}
+
+#menu > li:hover {
+background-color: #b0ded9;
+}
+
+#menu > li:hover a {
+color: #799f9b;
+}
+
+#menu > li:hover ul {
+display: block;
+}
+
+#sous-menu {display: none;}
+
+#sous-menu {
+list-style: none;
+position: absolute;
+top: 57px;
+left: 0;
+display: none;
+background-color: #9dcbc6;
+width: 100%;
+z-index: 3;
+}
+
+
+#sous-menu > li {
+padding: 20px 25px;
+border-top: 1px solid #b0ded9;
+ba
+}
+
+#sous-menu > li > a {
+text-decoration: none;
+color: #efefef;
+}
+
+#sous-menu > li:hover {
+background-color: #9dcbc6; /*#b0ded9;*/
+}
+
+#sous-menu > li:hover a {
+color: #efefef; /*#799f9b;*/
+}
+
+
+@media screen and (min-width: 800px) {
+
+.menu_button {display: none;}
+
+#menu {
+list-style: none;
+margin: 0;
+padding-left: 0;
+background-color: #9dcbc6;
+display: block;
+position: inherit;
+}
+
+#menu > li {
+/*display: inline-block;*/ /*non utilisable car ajoute un espace blanc entre les éléments dû au saut de ligne/espace/tabulation dans le HTML*/
+float: left; /*ATTENTION ! Il faut faire un clear du float*/
+padding: 20px 25px;
+border-right: 1px solid #b0ded9;
+position: relative;
+/*background-color: #9dcbc6;*/
+margin: 0;
+}
+#sous-menu {
+padding-left: 0;
+list-style: none;
+position: absolute;
+top: 57px;
+left: 0;
+display: none;
+background-color: #9dcbc6;
+width: 113px;
+}
+
+#sous-menu > li {
+padding: 20px 25px;
+border-top: 1px solid #b0ded9;
+ba
+}
+
+#sous-menu > li > a {
+text-decoration: none;
+color: #efefef;
+}
+
+#sous-menu > li:hover {
+background-color: #9dcbc6; /*#b0ded9;*/
+}
+
+#sous-menu > li:hover a {
+color: #efefef; /*#799f9b;*/
+}
+}
+
+.clearfix::after {
+content: '.';
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.clearfix { display: inline-block; }
+
+/* Hides from IE-mac */
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hides from IE-mac */
+</code></pre>
+
+<h3>Code HTML</h3>
+
+<pre><code>
+  &lt;nav&gt;
+    &lt;div class=&quot;menu_button&quot; onclick=&quot;menu(this)&quot;&gt;
+      &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt; 
+    &lt;ul id=&quot;menu&quot; class=&quot;clearfix&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#selecteurs&quot;&gt;S&eacute;lecteurs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cascade&quot;&gt;Cascade&lt;/a&gt;
+        &lt;ul id=&quot;sous-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;lien 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;lien 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;lien 3&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;lien 4&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#heritage&quot;&gt;H&eacute;ritage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#biblio&quot;&gt;Bibliographie&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+</code></pre>
+
+<h3>Code JAVASCRIPT</h3>
+
+<pre><code>
+  function menu(x) {
+    x.classList.toggle("change");
+    document.getElementById("menu").classList.toggle("change");
+    document.getElementById("menu").getElementsByTagName("li").classList.toggle("change");
+  }  
+</code></pre>
 
 
 </div>  <!-- id="content" -->
