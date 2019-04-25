@@ -8,7 +8,7 @@ Pour que la propriété d'un élément puisse être modifiée par le CSS, il fau
 
 ### Les balises
 
-On peut sélectionner l'élément grâce à sa balise. Ex : modification du titre de niveau 1 (`<h1/>``)
+On peut sélectionner l'élément grâce à sa balise. Ex : modification du titre de niveau 1 (`<h1/>`)
 
 Code HTML :
 
